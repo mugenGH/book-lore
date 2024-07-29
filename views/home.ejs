@@ -1,0 +1,86 @@
+<%- include("header.ejs") %>
+<%- include("navbar.ejs") %>
+<body>
+  <div class=" d-flex justify-content-between bg ">
+  <h2  >Self-help</h2><form>
+    <input type="hidden" name="id" value="self-help">
+  <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="More +"></form>
+  </div>
+  <div>
+   <div class="flex bg ">
+    <% for(var i=0;i<result1.items.length;i++){%>
+        <div class="item  ">
+        <% if(result1.items[i].volumeInfo.imageLinks){ %>
+          <a class="link" href="/item?selfLink=<%= result1.items[i].selfLink %>">
+          <input type="image" class="img"  src="<%= result1.items[i].volumeInfo.imageLinks.thumbnail%>">
+          
+          <h5><%= result1.items[i].volumeInfo.title %></h5>
+          <h6><%= result1.items[i].volumeInfo.authors %></h6>
+          </a>
+      <% } %>
+        </div>
+        <% } %>
+   </div>
+   <div class=" d-flex justify-content-between bg ">
+   <h2 >Fiction</h2><form>
+   <input type="hidden" name="id" value="Fiction">
+   <input type="submit" class="btn btn-home btn-home btn-primary" formmethod="post"  formaction="/category" value="More +"></form>
+   </div>
+   <div class="flex bg">
+    <% for(var i=0;i<result2.items.length;i++){%>
+        <div class="item ">
+        <% if(result2.items[i].volumeInfo.imageLinks){ %>
+          <a class="link" href="/item?selfLink=<%= result2.items[i].selfLink %>">
+          <input type="image"  class="img" src="<%= result2.items[i].volumeInfo.imageLinks.thumbnail%>">
+          <h5><%= result2.items[i].volumeInfo.title %></h5>
+          <h6><%= result2.items[i].volumeInfo.authors %></h6>
+          </a>
+      <% } %>
+
+        </div>
+        <% } %>
+   </div>
+   </div>
+ <div class="bg">
+ <h2>Categories:</h2>
+ <hr>
+   <div class="categories">
+  
+    <form>
+      <input type="hidden" name="id" value="NonFiction">
+    <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="Non-Fiction"></form>
+    <form>
+      <input type="hidden" name="id" value="Novel">
+    <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="Novel"></form>
+    <form>
+      <input type="hidden" name="id" value="Romance">
+    <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="Romance"></form>
+    <form>
+      <input type="hidden" name="id" value="Mystery">
+    <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="Mystery"></form>
+    <form>
+      <input type="hidden" name="id" value=" Thriller">
+    <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="Thriller"></form>
+    <form>
+      <input type="hidden" name="id" value="History">
+    <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="History"></form>
+    <form>
+      <input type="hidden" name="id" value="Health/fitness">
+    <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="Health/fitness"></form>
+    <form>
+      <input type="hidden" name="id" value="Comic">
+    <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="Comic book"></form>
+    <form>
+    <input type="hidden" name="id" value="manga">
+    <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="manga"></form>
+    <form>
+      <input type="hidden" name="id" value="manga&langRestrict=ja">
+    <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="manga-japanese"></form>
+  
+
+   </div>
+   </div>
+
+   <%- include("footer.ejs") %>
+   
+</body>

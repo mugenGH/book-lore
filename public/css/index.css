@@ -1,0 +1,152 @@
+body{
+    font-family: "Bacasime Antique", serif;
+    font-weight: 550;
+    font-size: 1.40rem;
+    font-style: normal;
+    background-image: url("../back\ ground\ 1.gif");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color:#DDE6ED;
+    
+    transition: filter 0.3s ease;
+
+}
+.img{
+    border-radius: 5%;
+    width: 150px;
+}
+.res-img{
+    border-radius: 5%;
+}
+
+.search{
+    width: 800px;
+    font-weight:600;
+}
+.bg-image {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.results{
+    display: grid;
+    grid-template-columns: repeat(4,300px);
+    grid-template-rows: repeat(4,300px);
+    justify-content: space-around;
+    gap: 1rem;
+}
+.cover{
+    width: 200px; height: 200px;
+    background-image: url(./ezgif-3-d2f1b56801.gif);
+}
+.flex{
+    display: flex;
+    gap: 1rem;
+   overflow-x: auto;
+   overflow-y: hidden;
+
+}
+.title{
+    font-family: "Parisienne", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+      }
+.link{
+        text-decoration: none;
+        color:#DDE6ED;
+    }
+.page{
+    display: flex;
+    gap: 0.5rem;
+}
+.item-img{
+    width: 200px;
+}
+.details{
+    flex:200px;
+    
+}
+.s-title{
+    font-weight: 700;
+    font-weight: bolder;
+    
+}
+.s-info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+
+    font-size: 1.5rem;
+}
+.detailsValue {
+    padding-top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.icon{
+    padding-top: 5px;
+}
+.navbar{
+    background:rgb(39, 55, 77);
+    color:#f6e0b5;
+}
+.bg{
+    background: rgb(82, 109, 130,0.7);
+    color:#DDE6ED !important;
+    padding: 8px;
+    margin: 1rem;
+    border-radius: 10px;
+}
+.bug-report{
+    opacity: 0.8;
+}
+.custom-navbar,.navbar-toggler-icon {
+    background-color: #27374D !important;
+    
+}
+      .custom-navbar .navbar-brand,
+      .custom-navbar .nav-link,
+      .text-color,
+      .custom-navbar .navbar-toggler-icon {
+        color: #DDE6ED !important;
+      }
+
+    
+::-webkit-scrollbar {
+    width: 10px;
+    background: transparent; }
+
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgb(39, 55, 77, 0.7); 
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .categories{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    gap: 1rem;
+  }
+  .item a{
+    
+    transition: filter 0.3s ease;
+    position: relative;
+  }
+
+ .item a :hover{
+    filter: blur(0px);
+    transform: scale(1.1);
+  }
+  .btn-home{
+    background-color: #27374D ;
+  }

@@ -1,0 +1,79 @@
+<%- include("header.ejs") %>
+<%- include("navbar.ejs") %>
+<body>
+<h1 class="bg s-title py-2"><%= result.volumeInfo.title %></h1>
+<div class="page ">
+    <div class="details bg">
+        <% if(result.volumeInfo.imageLinks){ %>
+        <input type="image" class="item-img img " alt="book-cover" src="<%= result.volumeInfo.imageLinks.thumbnail %>"><% }else{ %>
+            <input type="image" alt="No-book-cover " src="../ezgif-3-d2f1b56801.gif"><% } %>
+            <div class="ex-details"> 
+                <hr>
+                <h4 class="s-title">synonyms :</h4><%if(text) {%>
+                    <%= text%>
+                    <% }else{ %> --No synonyms--
+                         <% } %>
+                        <br>
+                        <hr>
+                        <h4>infomation:</h4>
+                       <span class="s-title ">TITLE :</span><p><%= result.volumeInfo.title %></p>
+                       <span class="s-title ">Authors :</span><p><%= result.volumeInfo.authors %></p>
+                       <span class="s-title ">Publisher :</span><p><%= result.volumeInfo.publisher %></p>
+                       <span class="s-title ">Published-Date :</span><p><%= result.volumeInfo.publishedDate %></p>
+                       <span class="s-title ">Page-count :</span><p><%= result.volumeInfo.pageCount %></p>
+            </div>
+    </div>
+    <div class="bg-details ms-1 bg">
+    <div class="info  ">
+    <div  class="s-info"><% if(result.volumeInfo.averageRating && result.volumeInfo.ratingsCount ){ %>
+       <span class="detailsValue "> <%= result.volumeInfo.averageRating %> <i class="bi icon bi-star"></i></span>
+       <span class="detailsValue "><%= result.volumeInfo.ratingsCount %>  <i class="bi icon bi-people-fill"></i></span>
+        <% }else{ %>
+            <span class="detailsValue "> -- <i class="bi icon bi-star"></i></span>
+            <span class="detailsValue "> -- <i class="bi icon bi-people-fill"></i></span>
+            <% } %>
+            <span class="detailsValue ">published-Date: <%= result.volumeInfo.publishedDate %></span>
+            <% if(result.volumeInfo.industryIdentifiers){ %>
+            <span class="detailsValue "><%=result.volumeInfo.industryIdentifiers[0].type %> :<%= result.volumeInfo.industryIdentifiers[0].identifier %></span>
+            <% }else{ %>
+                <span class="detailsValue ">ISBN : Not Define </span><% } %>
+    </div>
+    <div class="pt-2 d-flex align-items-center">
+      
+    <a class="flex-grow-1 " href=" <%= result.accessInfo.webReaderLink %>" target="_blank">
+    <% if(result.accessInfo.accessViewStatus==="SAMPLE"){ %>  
+    <button class="btn btn-outline-light  mt-3 ms-4 mb-4 w-25" >Read <i class="bi bi-book-half"></i></button>
+    <% }else{ %>
+        <input type="button" class="btn btn-light w-25 mt-3 ms-4 mb-4 "  value="visit ⮞">
+       <% } %>
+    </a>
+    
+    <div class="d-flex gap-2 me-5 ">
+   <h4 >Price : <% if(result.saleInfo.retailPrice) {%><h5> <%= result.saleInfo.retailPrice.amount %> <%= result.saleInfo.retailPrice.currencyCode %> </h5>
+    <% }else{ %><h5>--</h5><% } %>
+   </h4>
+   </div>
+     </div>
+    </div>
+    <h2 class="mt-4 s-title ">Synopsis:</h2>
+    <hr>
+    <div class="description  ">
+    <%- result.volumeInfo.description  %>
+    </div>
+    <hr>
+    <h2 class="s-title">Categories:</h2>
+    <ul>
+        <% if(result.volumeInfo.categories) {%>
+        <% for(var i=0;i<result.volumeInfo.categories.length;i++) {%>
+            <li>
+                <%= result.volumeInfo.categories[i] %>
+            </li>
+            <% } %>
+    </ul>
+    <% }else {%>
+        <h6>--No infomation--</h6><% } %>
+    </div>
+    </div>
+
+    <%- include("footer.ejs") %>
+</body>

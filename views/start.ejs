@@ -1,0 +1,26 @@
+<%- include("header.ejs") %>
+<body>
+    <div class=" text-center bg-image" style=" background-repeat: no-repeat; 
+    height: 100vh;
+            background-image: url(./12605.jpg);">
+          <div class="mask" style="background-color: rgba(0, 0, 0, 0.6); height: 100vh;">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-white">
+                <h1 class="mb-2 font-weight-bold title ">＊˚*•̩̩͙✩•̩̩͙*˚ <span style="font-size: 100px">Book Lore</span>  ˚*•̩̩͙✩•̩̩͙*˚＊</h1>
+                <h1 class="d-flex justify-content-center  ms-2 pb-4">.·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ .</h1>,
+
+                <h4 class="mb-5 mt-5"><%= quotes %> (can you guess the character)</h4>
+
+                <form method="post" action="/search"><div class="input-group mb-5 d-flex justify-content-center ">
+                  <input type="search" class=" rounded search " placeholder="Enter book title" name="title" aria-label="Search" aria-describedby="search-addon" />
+                  <input type="submit" class="btn btn-outline-light  ms-3" value="search">
+                </div></form>
+                <form action="/home" method="get">
+                <input type="submit" class="btn btn-outline-light btn-lg" href="/home" value="Go to Home ⮞">
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<%- include("header.ejs") %>
+<%- include("navbar.ejs") %>
+<body>
+    <div>
+       <h1 class=" bg acc"> <%= title %></h1>
+    </div>
+    <main>
+    <div class="results item bg ">
+      <% try{ %>
+
+        <% for(var i=0;i<result.items.length;i++){%>
+          <% if( result.items[i].searchInfo) {%>
+        <a class="link" href="/item?selfLink=<%= result.items[i].selfLink %>&textSnippet=<%= result.items[i].searchInfo.textSnippet %>">
+          <% }else{%>
+          <a class="link" href="/item?selfLink=<%= result.items[i].selfLink %>">
+            <% } %>
+            <div class="item  ms-2">
+            <% if(result.items[i].volumeInfo.imageLinks){ %>
+              <input type="image" class="res-img "   src="<%= result.items[i].volumeInfo.imageLinks.thumbnail%>">
+          <% } else{%> <input type="image" class="res-img img" src="../ezgif-3-d2f1b56801.gif"><% } %>
+              <h5><%= result.items[i].volumeInfo.title %></h5>
+              <h6><%= result.items[i].volumeInfo.authors %></h6>
+              
+            </div></a>
+            <% } %>
+          </div>
+          </main>
+            <%} catch(error){ %>
+              <h1>No books found</h1><% } %>
+
+              
+              <%- include("footer.ejs") %>
+    
+</body>
