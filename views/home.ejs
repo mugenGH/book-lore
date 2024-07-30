@@ -11,7 +11,11 @@
     <% for(var i=0;i<result1.items.length;i++){%>
         <div class="item  ">
         <% if(result1.items[i].volumeInfo.imageLinks){ %>
-          <a class="link" href="/item?selfLink=<%= result1.items[i].selfLink %>">
+          <% if( result1.items[i].searchInfo) {%>
+            <a class="link" href="/item?selfLink=<%= result.items[i].selfLink %>&textSnippet=<%= result1.items[i].searchInfo.textSnippet %>">
+              <% }else{%>
+              <a class="link" href="/item?selfLink=<%= result1.items[i].selfLink %>">
+                <% } %>
           <input type="image" class="img"  src="<%= result1.items[i].volumeInfo.imageLinks.thumbnail%>">
           
           <h5><%= result1.items[i].volumeInfo.title %></h5>
@@ -30,7 +34,11 @@
     <% for(var i=0;i<result2.items.length;i++){%>
         <div class="item ">
         <% if(result2.items[i].volumeInfo.imageLinks){ %>
-          <a class="link" href="/item?selfLink=<%= result2.items[i].selfLink %>">
+          <% if( result2.items[i].searchInfo) {%>
+            <a class="link" href="/item?selfLink=<%= result2.items[i].selfLink %>&textSnippet=<%= result2.items[i].searchInfo.textSnippet %>">
+              <% }else{%>
+              <a class="link" href="/item?selfLink=<%= result2.items[i].selfLink %>">
+                <% } %>
           <input type="image"  class="img" src="<%= result2.items[i].volumeInfo.imageLinks.thumbnail%>">
           <h5><%= result2.items[i].volumeInfo.title %></h5>
           <h6><%= result2.items[i].volumeInfo.authors %></h6>
@@ -75,7 +83,10 @@
     <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="manga"></form>
     <form>
       <input type="hidden" name="id" value="manga&langRestrict=ja">
+    <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="manga-japanese"></form><form>
+      <input type="hidden" name="id" value="manga&langRestrict=ja">
     <input type="submit" class="btn btn-home btn-primary" formmethod="post"  formaction="/category" value="manga-japanese"></form>
+  
   
 
    </div>

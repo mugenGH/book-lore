@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import path from 'path';  // Import path module
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-
+dotenv.config();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
@@ -37,8 +37,8 @@ app.post("/search", async (req,res)=>{
  
 res.render("result",{title:title,result:result})
    }catch(error){
-res.render("result",{title: "no match found",result:[]})
-res.status(503).send("503 too many request 😣😣😣😣")
+res.render("result",{title: "No match found",result:[]})
+
    }
 
 })
@@ -53,7 +53,7 @@ res.render("home",{result1:result1,result2:result2})   ;
    catch(error){
       console.error('Error fetching trending books:', error);
       res.render("home",{result:[]})
-      res.status(503).send("503 too many request 😣😣😣😣")
+      
    }
  })
  app.get("/item",async(req,res)=>{
@@ -77,8 +77,8 @@ res.render("result",{title:category,result:result});
 
 
    }catch(error){
-res.render("result",{title: "no match found",result:[]})
-res.status(503).send("503 too many request 😣😣😣😣")
+res.render("result",{title: "No match found",result:[]})
+
    }
 
 

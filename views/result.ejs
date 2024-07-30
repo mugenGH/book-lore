@@ -2,12 +2,13 @@
 <%- include("navBar.ejs") %>
 <body>
     <div>
-       <h1 class=" bg acc"> <%= title %></h1>
+       <h1 class="bg" > <%= title %></h1>
     </div>
-    <main>
-    <div class="results item bg ">
-      <% try{ %>
+ 
 
+      <% try{ %>
+        <main>
+        <div class="results item bg ">
         <% for(var i=0;i<result.items.length;i++){%>
           <% if( result.items[i].searchInfo) {%>
         <a class="link" href="/item?selfLink=<%= result.items[i].selfLink %>&textSnippet=<%= result.items[i].searchInfo.textSnippet %>">
@@ -26,9 +27,13 @@
           </div>
           </main>
             <%} catch(error){ %>
-              <h1>No books found</h1><% } %>
+              
+              <h1>No books found</h1>
+
+              <% } %>
 
               
-              <%- include("footer.ejs") %>
+         
     
 </body>
+<%- include("footer.ejs") %>
