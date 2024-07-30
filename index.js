@@ -3,14 +3,26 @@ import axios  from "axios";
 import movieQuotes  from "movie-quotes";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
+import path from 'path';  // Import path module
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-dotenv.config();
-const app=express();
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const app = express();
+app.set('views', path.join(__dirname, 'views'));
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
+
+// Set the views directory
+app.set('views', path.join(__dirname, 'views'));
+
+
 const port = 3000;
 
 
 
-app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static("public"));
  const ApiEndpt="https://www.googleapis.com/books/v1/volumes?q=";
 
