@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.jsgit ",
+    "start": "node index.js ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,7 +14,7 @@
     "axios": "^1.4.0",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
-    "ejs": "^3.1.9",
+    "ejs": "^3.1.10",
     "express": "^4.18.2",
     "movie-quotes": "^1.0.1"
   }
