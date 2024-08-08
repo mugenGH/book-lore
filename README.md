@@ -32,13 +32,6 @@ Copy code
 # Example usage
 # After starting the project, open your browser and navigate to:
 http://localhost:3000
-Features
-Discover new books based on genre and popularity
-Catalog books into personal collections
-Share book recommendations with friends
-Review and rate books
-Contributing
-Contributions are welcome! If you have suggestions for new features or improvements, feel free to fork the repository and create a pull request.
 
 Fork the repository
 Create your feature branch (git checkout -b feature/AmazingFeature)
