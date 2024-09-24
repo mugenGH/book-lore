@@ -3,11 +3,11 @@
 <body>
 <h1 class="bg s-title py-2"><%= result.volumeInfo.title %></h1>
 <div class="page ">
-    <div class="details bg">
+    <div class="details bg" >
         <% if(result.volumeInfo.imageLinks){ %>
         <input type="image" class="item-img img " alt="book-cover" src="<%= result.volumeInfo.imageLinks.thumbnail %>"><% }else{ %>
             <input type="image" alt="No-book-cover " src="../ezgif-3-d2f1b56801.gif"><% } %>
-            <div class="ex-details"> 
+            <div class="ex-details" > 
                 <hr>
                 <h4 class="s-title">synonyms :</h4><%if(text) {%>
                     <%= text%>
@@ -23,7 +23,7 @@
                        <span class="s-title ">Page-count :</span><p><%= result.volumeInfo.pageCount %></p>
             </div>
     </div>
-    <div class="bg-details ms-1 bg">
+    <div class="bg-details ms-1 bg" >
     <div class="info  ">
     <div  class="s-info"><% if(result.volumeInfo.averageRating && result.volumeInfo.ratingsCount ){ %>
        <span class="detailsValue "> <%= result.volumeInfo.averageRating %> <i class="bi icon bi-star"></i></span>
@@ -38,7 +38,7 @@
             <% }else{ %>
                 <span class="detailsValue ">ISBN : Not Define </span><% } %>
     </div>
-    <div class="pt-2 d-flex align-items-center">
+    <div class="pt-2 d-flex align-items-center" >
       
     <a class="flex-grow-1 " href=" <%= result.accessInfo.webReaderLink %>" target="_blank">
     <% if(result.accessInfo.accessViewStatus==="SAMPLE"){ %>  

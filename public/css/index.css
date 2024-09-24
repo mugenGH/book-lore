@@ -70,6 +70,10 @@ body{
 .details{
     flex:200px;
     
+    
+}
+.info{
+    width: 850px;
 }
 .s-title{
     font-weight: 700;

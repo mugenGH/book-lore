@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 import path from 'path';  // Import path module
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { log } from "console";
+import pagination from "pagination";
 dotenv.config();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -30,16 +32,38 @@ const quotes=movieQuotes.random();
  });
 
 app.post("/search", async (req,res)=>{
-   try{
-  const title= req.body.title;
-  const response = await axios.get(`${ApiEndpt}${title}&maxResults=40`);
-  const result=response.data;
- 
-res.render("result",{title:title,result:result})
-   }catch(error){
-res.render("result",{title: "No match found",result:[]})
+   const title = req.body.title;
+   const pageNo=req.body.pageNo;
+    const currentPage = req.body.currentPage ? parseInt(req.body.currentPage) : 1;
+    const rowsPerPage = 40; // Number of results per page
+    const startIndex = (currentPage - 1) * rowsPerPage; // Calculate startIndex
 
-   }
+    try {
+        const response = await axios.get(`${ApiEndpt}${title}&maxResults=${rowsPerPage}&page=${currentPage}&key=${API_KEY}`);
+        
+        const result = response.data;
+        const totalItems = result.totalItems; // Get total items from the response
+       
+        // Create pagination links
+        const paginator = pagination.create('search', {
+            prelink: `/search`,
+            current: currentPage,
+            rowsPerPage: rowsPerPage,
+            totalResult: totalItems
+        });
+        console.log();
+        // Render results with pagination
+        res.render("result", {
+            title: title,
+            result: result,
+            currentPage: currentPage,
+            totalItems: totalItems,
+            pages: paginator.render() // Pagination links
+        });
+    } catch (error) {
+     // console.error("Error fetching books:", error);
+        res.render("result", { title: "No match found", result: [], pages: '' });
+    }
 
 })
  app.get("/home", async(req,res)=>{
