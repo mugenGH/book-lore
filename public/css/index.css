@@ -154,3 +154,8 @@ body{
   .btn-home{
     background-color: #27374D ;
   }
+  .pagination-button{
+    color: #DDE6ED;
+    margin-right: 3px;
+    bottom: none;
+  }

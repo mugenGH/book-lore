@@ -25,13 +25,14 @@
             </div></a>
             <% } %>
           </div>
-          <div class="pagination">
+          <div class="pagination "  style="display:flex;justify-content: center;align-items: center;">
+            <% console.log(totalItems) %>
             <% if (totalItems > 40) { %>
                 <% for (let i = 1; i <= Math.ceil(totalItems / 40); i++) { %>
-                    <form action="/search" method="POST" style="display:inline;">
+                    <form action="/search" method="POST">
                         <input type="hidden" name="title" value="<%= title %>"> <!-- Pass the search title -->
                         <input type="hidden" name="currentPage" value="<%= i %>"> <!-- Pass the current page number -->
-                        <button type="submit" class="pagination-button"><%= i %></button>
+                        <button type="submit" class="pagination-button btn-home btn rounded"><%= i %></button>
                     </form>
                 <% } %>
             <% } %>

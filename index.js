@@ -39,10 +39,10 @@ app.post("/search", async (req,res)=>{
     const startIndex = (currentPage - 1) * rowsPerPage; // Calculate startIndex
 
     try {
-        const response = await axios.get(`${ApiEndpt}${title}&maxResults=${rowsPerPage}&page=${currentPage}&key=${API_KEY}`);
+        const response = await axios.get(`${ApiEndpt}${title}&maxResults=${rowsPerPage}&startIndex=${startIndex}&key=${API_KEY}`);
         
         const result = response.data;
-        const totalItems = result.totalItems; // Get total items from the response
+        const totalItems = 450; // Get total items from the response
        
         // Create pagination links
         const paginator = pagination.create('search', {
@@ -51,7 +51,7 @@ app.post("/search", async (req,res)=>{
             rowsPerPage: rowsPerPage,
             totalResult: totalItems
         });
-        console.log();
+        console.log(totalItems);
         // Render results with pagination
         res.render("result", {
             title: title,
